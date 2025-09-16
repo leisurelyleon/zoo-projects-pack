@@ -35,6 +35,8 @@ python3 -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
 python src/normalize_cad.py --input data/raw --output data/processed/normalized.csv
 
+---
+
 ### 2) Graphics Engine Prototype
 
 **TL;DR:** Minimal C++17 mesh (indexed tris) with translate/scale/rotate ops and AABB; includes a micro-benchmark.
@@ -43,6 +45,8 @@ python src/normalize_cad.py --input data/raw --output data/processed/normalized.
 mkdir build && cd build
 cmake .. && cmake --build .
 ./engine_bench
+
+---
 
 ### 3) CAD File Format Converter
 
@@ -57,6 +61,8 @@ python tools/fuzz.py --iters 50
 mkdir build && cd build && cmake .. && cmake --build .
 ./cadf_to_json ../data/sample.cadf > ../data/sample.cpp.json
 
+---
+
 ### 4) ML Pipeline
 **TL;DR:** Reproducible ML demo that creates features, trains a baseline, and logs metrics/artifacts.
 **Run**
@@ -65,6 +71,8 @@ python3 -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
 python src/train.py --seed 42 --out artifacts
 python src/evaluate.py --artifacts artifacts
+
+---
 
 ## Outputs `artifacts/features.parquet, model.pkl, metrics.json, eval_summary.json`
 
