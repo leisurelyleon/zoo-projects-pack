@@ -36,6 +36,7 @@ pip install -r requirements.txt
 python src/normalize_cad.py --input data/raw --output data/processed/normalized.csv
 
 ~~~
+---
 
 ### 2) Graphics Engine Prototype
 
