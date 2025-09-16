@@ -29,7 +29,6 @@ Four compact, buildable demos that map 1:1 to Zoo’s roles. Each folder is self
 ## Screenshots
 
 ### 1) CAD Data Normalizer
-![CAD Data Normalizer](images/cad-normalizer.png)
 
 **TL;DR:** Ingest JSON/CSV, validate, compute per-file checksums, and emit a normalized CSV ready for warehousing.  
 **Run**
