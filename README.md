@@ -26,8 +26,6 @@ Four compact, buildable demos that map 1:1 to Zoo’s roles. Each folder is self
 
 ---
 
-## Screenshots
-
 ### 1) CAD Data Normalizer
 
 **TL;DR:** Ingest JSON/CSV, validate, compute per-file checksums, and emit a normalized CSV ready for warehousing.  
@@ -36,3 +34,42 @@ Four compact, buildable demos that map 1:1 to Zoo’s roles. Each folder is self
 python3 -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
 python src/normalize_cad.py --input data/raw --output data/processed/normalized.csv
+
+### 2) Graphics Engine Prototype
+
+**TL;DR:** Minimal C++17 mesh (indexed tris) with translate/scale/rotate ops and AABB; includes a micro-benchmark.
+**Build & Run**
+```bash
+mkdir build && cd build
+cmake .. && cmake --build .
+./engine_bench
+
+### 3) CAD File Format Converter
+
+**TL;DR:** Parser/validator for a toy .cadf format plus JSON converter; includes fuzzing to harden edge cases.
+**Run**
+```bash
+python tools/cadf_to_json.py data/sample.cadf > data/sample.json
+python tools/validate.py data/sample.cadf
+python tools/fuzz.py --iters 50
+
+# C++ JSON emitter
+mkdir build && cd build && cmake .. && cmake --build .
+./cadf_to_json ../data/sample.cadf > ../data/sample.cpp.json
+
+### 4) ML Pipeline
+**TL;DR:** Reproducible ML demo that creates features, trains a baseline, and logs metrics/artifacts.
+**Run**
+```bash
+python3 -m venv .venv && source .venv/bin/activate
+pip install -r requirements.txt
+python src/train.py --seed 42 --out artifacts
+python src/evaluate.py --artifacts artifacts
+
+## Outputs `artifacts/features.parquet, model.pkl, metrics.json, eval_summary.json`
+
+# Quick-start (repo-level)
+```bash
+# from repo root:
+cd zoo-cad-data-normalizer     # or another folder
+# then follow that folder's README
