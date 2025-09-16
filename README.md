@@ -73,7 +73,7 @@ python src/evaluate.py --artifacts artifacts
 ## Outputs
 ```artifacts/features.parquet, model.pkl, metrics.json, eval_summary.json```
 
-# Quick-start (repo-level)
+## Quick-start (repo-level)
 ```bash
 # from repo root:
 cd zoo-cad-data-normalizer     # or another folder
