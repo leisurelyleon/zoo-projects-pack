@@ -9,4 +9,6 @@ python src/normalize_cad.py --input data/raw --output data/processed/normalized.
 ```
 
 ## Schema
-```part_id,assembly,version,updated_at,material,mass_kg,bbox_x,bbox_y,bbox_z,checksum,source_file```
+```schema
+part_id,assembly,version,updated_at,material,mass_kg,bbox_x,bbox_y,bbox_z,checksum,source_file
+```
