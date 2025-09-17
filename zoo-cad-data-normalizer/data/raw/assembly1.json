@@ -1,0 +1,27 @@
+[
+  {
+    "part_id": "A-001",
+    "assembly": "gearbox",
+    "version": "v2",
+    "updated_at": "2025-08-01T12:00:00Z",
+    "material": "Aluminum",
+    "mass_kg": 1.4,
+    "bbox": {
+      "x": 10.4,
+      "y": 5.5,
+      "z": 3.2
+    }
+  },
+  {
+    "part_id": "A-002",
+    "assembly": "gearbox",
+    "version": "v2",
+    "material": "Steel",
+    "mass_kg": 2.1,
+    "bbox": {
+      "x": 8.1,
+      "y": 4.0,
+      "z": 2.0
+    }
+  }
+]
