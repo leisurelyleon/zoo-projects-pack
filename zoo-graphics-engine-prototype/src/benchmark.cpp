@@ -1,0 +1,4 @@
+#include "transforms.hpp"
+#include <chrono>
+#include <iostream>
+int main(){Mesh m;const int N=100;m.vertices.reserve(N*N);for(int i=0;i<N;i++){for(int j=0;j<N;j++){m.vertices.push_back({(double)i,(double)j,0.0});}}for(int i=0;i<N-1;i++){for(int j=0;j<N-1;j++){int idx=i*N+j;m.faces.push_back({idx,idx+1,idx+N});m.faces.push_back({idx+1,idx+N+1,idx+N});}}auto t0=std::chrono::high_resolution_clock::now();translate(m,1,2,0);scale(m,1.1,0.9,1.0);rotateZ(m,0.25);auto t1=std::chrono::high_resolution_clock::now();Vec3 mn,mx;aabb(m,mn,mx);auto t2=std::chrono::high_resolution_clock::now();auto dt_ops=std::chrono::duration<double,std::milli>(t1-t0).count();auto dt_aabb=std::chrono::duration<double,std::milli>(t2-t1).count();std::cout<<"ops_ms="<<dt_ops<<" aabb_ms="<<dt_aabb<<"\n";std::cout<<"aabb_min=("<<mn.x<<","<<mn.y<<","<<mn.z<<") max=("<<mx.x<<","<<mx.y<<","<<mx.z<<")\n";return 0;}
